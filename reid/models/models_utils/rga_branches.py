@@ -139,17 +139,37 @@ class RGA_Branch(nn.Module):
 
 		return nn.Sequential(*layers)
 
+	# def load_partial_param(self, state_dict, model_index, model_path):
+	# 	param_dict = torch.load(model_path)
+	# 	for i in state_dict:
+	# 		key = 'layer{}.'.format(model_index)+i
+	# 		state_dict[i].copy_(param_dict[key])
+	# 	del param_dict
+
 	def load_partial_param(self, state_dict, model_index, model_path):
 		param_dict = torch.load(model_path)
+		param_dict = {k: v for k, v in param_dict.items() if 'num_batches_tracked' not in k}
 		for i in state_dict:
 			key = 'layer{}.'.format(model_index)+i
+			if 'num_batches_tracked' in key:
+				continue
 			state_dict[i].copy_(param_dict[key])
 		del param_dict
 
+	# def load_specific_param(self, state_dict, param_name, model_path):
+	# 	param_dict = torch.load(model_path)
+	# 	for i in state_dict:
+	# 		key = param_name + '.' + i
+	# 		state_dict[i].copy_(param_dict[key])
+	# 	del param_dict
+
 	def load_specific_param(self, state_dict, param_name, model_path):
 		param_dict = torch.load(model_path)
+		param_dict = {k: v for k, v in param_dict.items() if 'num_batches_tracked' not in k}
 		for i in state_dict:
 			key = param_name + '.' + i
+			if 'num_batches_tracked' in key:
+				continue
 			state_dict[i].copy_(param_dict[key])
 		del param_dict
 

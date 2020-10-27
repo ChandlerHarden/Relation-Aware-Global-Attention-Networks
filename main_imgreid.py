@@ -57,7 +57,7 @@ TEST：
 --combine-trainval
 --seed 16
 --num_gpu 1
---epochs 600
+--epochs 200
 --features 2048
 --start_save 300
 --branch_name rgasc
