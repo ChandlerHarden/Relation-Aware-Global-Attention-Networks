@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": [
+                "-a",               "resnet50_rga",
+                "-b",               "16",
+                "-d",               "cuhk03labeled",
+                "-j",               "0",
+                "--opt",            "adam",
+                "--dropout",        "0",
+                "--combine-trainval",
+                "--seed",           "16",
+                "--num_gpu",        "1",
+                "--epochs",         "600",
+                "--features",       "2048",
+                "--start_save",     "300",
+                "--branch_name",    "rgasc",
+                "--data-dir",       "./data",
+                "--logs-dir",       "./logs/RGA-SC/cuhk03labeled_b64f2048"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
