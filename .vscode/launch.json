@@ -19,7 +19,7 @@
                 "--combine-trainval",
                 "--seed", "16",
                 "--num_gpu", "1",
-                "--epochs", "200",
+                "--epochs", "600",
                 "--features", "2048",
                 "--start_save", "300",
                 "--branch_name", "rgasc",

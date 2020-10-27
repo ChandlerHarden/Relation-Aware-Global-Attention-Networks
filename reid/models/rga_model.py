@@ -94,7 +94,7 @@ class ResNet50_RGA_Model(nn.Module):
 
 	def forward(self, inputs, training=True):
 		im_input = inputs[0]
-		print(im_input.shape) 
+		# print(im_input.shape) 
 		#             b c  h   w
 		# torch.size([8,3,256,128])
 		feat_ = self.backbone(im_input)
